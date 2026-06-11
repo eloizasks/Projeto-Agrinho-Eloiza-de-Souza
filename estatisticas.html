@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatísticas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AgroSustentável - Estatísticas</h1>
+        <nav>
+            <button onclick="location.href='index.html'">Início</button>
+            <button onclick="location.href='ods.html'">ODS e Agricultura</button>
+            <button onclick="location.href='solucoes.html'">Soluções</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="stats">
+            <h2>Dados sobre Agricultura e Sustentabilidade</h2>
+            
+            <!-- Gráfico simples IA -->
+            <canvas id="grafico" width="600" height="300"></canvas>
+            
+            <p>Exemplo de estatísticas:</p>
+            <ul>
+                <li>50% das terras agrícolas mundiais são degradadas por práticas intensivas.</li>
+                <li>O uso sustentável de recursos aumenta a produtividade em até 20%.</li>
+                <li>Agroecologia reduz significativamente o impacto ambiental.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgroSustentável - Educação e Sustentabilidade</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('grafico');
+        const ctx = canvas.getContext('2d');
+
+        const dados = [50, 70, 40, 90, 60];
+        const cores = ['#76c893','#4db68d','#3aa76d','#66bb6a','#2e7d32'];
+        const labels = ['Brasil','China','Índia','EUA','UE'];
+
+        dados.forEach((valor, i) => {
+            ctx.fillStyle = cores[i];
+            ctx.fillRect(i*110 + 50, 300-valor*2, 50, valor*2);
+            ctx.fillStyle = '#000';
+            ctx.fillText(labels[i], i*110 + 50, 310);
+        });
+    </script>
+</body>
+</html>
